@@ -22,7 +22,6 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                // Tambahkan langkah-langkah untuk melakukan deployment aplikasi ke server atau platform tujuan Anda
             }
         }
     }
