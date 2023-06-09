@@ -4,7 +4,8 @@
   "description": "react-app",
   "main": "react-app",
   "scripts": {
-    "test": "npm install"
+    "test": "npm install",
+    "build": "react-scripts build"
   },
   "repository": {
     "type": "git",
