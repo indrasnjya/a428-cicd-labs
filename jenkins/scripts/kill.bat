@@ -1,7 +1,5 @@
-#!/bin/bash
+REM Kill the running process
+taskkill /IM node.exe /F
 
-# Kill the running process
-pkill node
-
-# Finish
-echo "Process killed."
+REM Finish
+echo Process killed.
