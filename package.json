@@ -5,8 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "npm install",
-    "deliver": "deliver"
-    "kill":"kill"
   },
   "repository": {
     "type": "git",
