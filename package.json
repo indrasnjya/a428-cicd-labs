@@ -1,0 +1,22 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "react-app",
+  "main": "react-app",
+  "scripts": {
+    "test": "npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indrasnjya/a428-cicd-labs.git"
+  },
+  "keywords": [
+    "package.json"
+  ],
+  "author": "indrasnjya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/indrasnjya/a428-cicd-labs/issues"
+  },
+  "homepage": "https://github.com/indrasnjya/a428-cicd-labs#readme"
+}
