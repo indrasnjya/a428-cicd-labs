@@ -1,19 +1,16 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:16-buster-slim'
-            args '-p 3000:3000'
-        }
-    }
+    agent any
+    
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
+        
         stage('Test') {
             steps {
-                sh './jenkins/scripts/test.sh'
+                bat '.\\jenkins\\scripts\\test.bat'
             }
         }
         
@@ -21,25 +18,25 @@ pipeline {
             steps {
                 script {
                     def userInput = input(
-                id: 'approvalInput',
-                message: 'Lanjutkan ke tahap Deploy?',
-                parameters: [
-                    [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Pilih opsi untuk melanjutkan atau menghentikan pipeline', name: 'APPROVAL']
-                ]
-            )
-            if (userInput == true) {
-                echo 'Melanjutkan ke tahap Deploy'
-            } else {
-                error('Pipeline dihentikan oleh pengguna')
+                        id: 'approvalInput',
+                        message: 'Lanjutkan ke tahap Deploy?',
+                        parameters: [
+                            [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Pilih opsi untuk melanjutkan atau menghentikan pipeline', name: 'APPROVAL']
+                        ]
+                    )
+                    if (userInput == true) {
+                        echo 'Melanjutkan ke tahap Deploy'
+                    } else {
+                        error('Pipeline dihentikan oleh pengguna')
                     }
                 }
             }
         }
         
-        stage('Deploy') { 
+        stage('Deploy') {
             steps {
-                sh './jenkins/scripts/deliver.sh' 
-                sh './jenkins/scripts/kill.sh' 
+                bat '.\\jenkins\\scripts\\deliver.bat'
+                bat '.\\jenkins\\scripts\\kill.bat'
             }
         }
     }
