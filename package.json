@@ -1,8 +1,8 @@
 {
-  "name": "package.json",
+  "name": "a428-cicd-labs",
   "version": "1.0.0",
   "description": "react-app",
-  "main": "react-app",
+  "main": "index.js",
   "scripts": {
     "test": "npm install",
     "build": "react-scripts build"
