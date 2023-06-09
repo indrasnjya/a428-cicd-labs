@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm install",
+    "build": "react-scripts build"
   },
   "repository": {
     "type": "git",
