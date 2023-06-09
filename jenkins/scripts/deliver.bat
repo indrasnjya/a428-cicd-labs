@@ -1,7 +1,5 @@
-#!/bin/bash
-
-# Build the application
+REM Build the application
 npm run build
 
-# Finish
+REM Finish
 echo "Delivery completed."
