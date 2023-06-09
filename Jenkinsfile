@@ -37,6 +37,7 @@ pipeline {
             steps {
                 bat '.\\jenkins\\scripts\\deliver.bat'
                 bat '.\\jenkins\\scripts\\kill.bat'
+                sleep time: 1, unit: 'MINUTES'
             }
         }
     }
