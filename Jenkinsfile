@@ -34,9 +34,19 @@ pipeline {
         }
         
         stage('Deploy') {
-            steps {
-                bat '.\\jenkins\\scripts\\deploy.bat'
-                bat '.\\jenkins\\scripts\\kill.bat'
+    steps {
+        bat '.\\jenkins\\scripts\\deploy.bat'
+        script {
+            input(
+                id: 'deployInput',
+                message: 'Aplikasi telah berhasil di-deploy. Apakah Anda ingin menjeda eksekusi selama 1 menit?',
+                parameters: [
+                    [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Pilih opsi untuk menjeda atau melanjutkan eksekusi', name: 'PAUSE']
+                ]
+            )
+            if (params.PAUSE == true) {
+                echo 'Menjeda eksekusi selama 1 menit...'
+                sleep(time: 1, unit: 'MINUTES')
             }
         }
     }
