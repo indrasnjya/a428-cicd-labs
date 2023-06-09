@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm install",
-    "build": "npm run build"
+    "deliver": "npm run build"
   },
   "repository": {
     "type": "git",
