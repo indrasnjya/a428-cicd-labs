@@ -15,6 +15,7 @@ pipeline {
         
         stage('Test') {
             steps {
+                sh 'chmod +x ./script/test.sh'
                 sh './script/test.sh'
             }
         }
@@ -40,6 +41,7 @@ pipeline {
         
         stage('Deploy') {
             steps {
+                sh 'chmod +x ./script/deploy.sh'
                 sh './script/deploy.sh'
                 script {
                     def deployInput = input(
