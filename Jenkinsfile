@@ -15,7 +15,7 @@ pipeline {
         
         stage('Test') {
             steps {
-                sh '.test.sh'
+                sh './script/test.sh'
             }
         }
         
@@ -40,7 +40,7 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                sh '.deploy.sh'
+                sh './script/deploy.sh'
                 script {
                     def deployInput = input(
                         id: 'deployInput',
