@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'debian'
+            image 'node:16-buster-slim'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
