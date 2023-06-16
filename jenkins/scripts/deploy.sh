@@ -1,5 +1,5 @@
-@echo off
+#!/bin/bash
 
-echo Deploying...
+echo "Deploying..."
 
-echo Deployment completed.
+echo "Deployment completed."
