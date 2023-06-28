@@ -1,22 +1,22 @@
 pipeline {
     agent {
         docker {
-            image 'node:16-buster-slim'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
+            image 'node:6-alpine'
+            args '-p 3000:3000'
         }
     }
-    
+    environment {
+        CI = 'true'
+    }
     stages {
         stage('Build') {
             steps {
                 sh 'npm install'
             }
         }
-        
         stage('Test') {
             steps {
-                sh 'chmod +x ./script/test.sh'
-                sh './script/test.sh'
+                sh './jenkins/scripts/test.sh'
             }
         }
         
@@ -41,8 +41,9 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                sh 'chmod +x ./script/deploy.sh'
-                sh './script/deploy.sh'
+                sh './jenkins/scripts/deliver.sh'
+                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                sh './jenkins/scripts/kill.sh'
                 script {
                     def deployInput = input(
                         id: 'deployInput',
